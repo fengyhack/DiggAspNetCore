@@ -108,7 +108,7 @@ Scaffold-DbContext “Server=localhost;Database=Ocean;User ID=postgres;Password=
 
 
 
-**4.4. Then click `Add`, required packages can be automatically installed. **
+**4.4. Then click `Add`, required packages can be automatically installed.**
 
 
 
