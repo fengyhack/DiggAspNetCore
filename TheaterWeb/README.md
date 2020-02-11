@@ -55,7 +55,8 @@ Install-Package Microsoft.EntityFrameworkCore.Tools
 Firstly, create the output folder (*Models*), then type the script below in `PM>`
 
 ```
-Scaffold-DbContext “Server=localhost;Database=Ocean;User ID=postgres;Password=postgres;” Npgsql.EntityFrameworkCore.PostgreSQL -OutputDir Models
+Scaffold-DbContext “Server=localhost;Database=Ocean;User ID=postgres;Password=postgres;” 
+Npgsql.EntityFrameworkCore.PostgreSQL -OutputDir Models
 ```
 
 
@@ -108,9 +109,9 @@ Scaffold-DbContext “Server=localhost;Database=Ocean;User ID=postgres;Password=
 
 
 
-**4.4. Then click `Add`, required packages can be automatically installed.**
+**4.4. Then click `Add`, the required packages will be automatically installed.**
 
-
+Wait for a few seconds before it done.
 
 ### 5. Run in a browser (maybe Chrome) ###
 
