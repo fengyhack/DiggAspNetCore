@@ -6,7 +6,7 @@
 
 ASP .NET Core Web App (.NET Core 3.1) with PostgreSQL 10 Database
 
-*Visual Studio 2019* (version 16.4.4+ or latest) on Windows 10
+*Visual Studio 2019* (version 16.4.4 or higher) on Windows 10
 
 
 
@@ -14,7 +14,7 @@ ASP .NET Core Web App (.NET Core 3.1) with PostgreSQL 10 Database
 
 ### 0.PostgreSQL Database ###
 
-**Create a database named `Ocean` using *pgAdmin***
+**Create a database named `Ocean` using `pgAdmin` or other tools**
 
 ![00](imgs/00.png) 
 
@@ -22,7 +22,7 @@ ASP .NET Core Web App (.NET Core 3.1) with PostgreSQL 10 Database
 
 ### 1. Create a New ASP .NET Core Web Application ###
 
-**Select `.NET COre` `ASP.NET Core 3.1`**
+**Select `.NET Core` `ASP.NET Core 3.1`**
 
 ![01](imgs/01.png)
 
@@ -68,13 +68,13 @@ Scaffold-DbContext “Server=localhost;Database=Ocean;User ID=postgres;Password=
 
 
 
-**3.1. Remove the override method `DbContext.OnConfiguring` **
+**3.1. Remove the override method `DbContext.OnConfiguring`**
 
 ![04](imgs/04.png)
 
 
 
-**3.2. Edit App Settings **
+**3.2. Edit App Settings**
 
 
 
@@ -90,25 +90,25 @@ Scaffold-DbContext “Server=localhost;Database=Ocean;User ID=postgres;Password=
 
 ### 4. Add New Razor Page ###
 
-**4.1. Right click on the `Pages` folder, *Add* --> *Razor Page* **
+**4.1. Right click on the `Pages` folder, `Add` --> `Razor Page`**
 
 ![07](imgs/07.png)
 
 
 
-**4.2. Select *Using Entity Framework to Generate Razor Page (CRUD)* **
+**4.2. Select `Using Entity Framework to Generate Razor Page (CRUD)`**
 
 ![08](imgs/08.png)
 
 
 
-**4.3. Select *Model* and *Data Context* as below **
+**4.3. Select `Model` and `Data Context` as below**
 
 ![09](imgs/09.png)
 
 
 
-**4.4. Then click *Add*, required packages can be automatically installed. **
+**4.4. Then click `Add`, required packages can be automatically installed. **
 
 
 
