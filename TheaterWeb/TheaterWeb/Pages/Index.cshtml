@@ -5,50 +5,17 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Movies[0].Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Movies[0].Time)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Movies[0].Genre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Movies[0].Desc)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Movies) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Time)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Genre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Desc)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+@if (Model.DbExists)
+{
+    <h5>Tables</h5>
+    <ul>
+        <li><a href="/movie">Movie</a></li>
+    </ul>
 }
-    </tbody>
-</table>
+else
+{
+    <p>Database does not exist</p>
+    <form method="post">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </form>
+}

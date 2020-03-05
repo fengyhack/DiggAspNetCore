@@ -1,28 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using System.Threading.Tasks;
 using TheaterWeb.Models;
 
 namespace TheaterWeb
 {
     public class IndexModel : PageModel
     {
-        private readonly OceanContext _context;
+        public bool DbExists { get; set; }
 
-        public IndexModel(OceanContext context)
+        private readonly ILogger<IndexModel> _logger;
+        private readonly OceanDbContext _context;
+
+        public IndexModel(OceanDbContext context,ILogger<IndexModel> logger)
         {
             _context = context;
+            _logger = logger;
+            DbExists = _context.CanConnect;
         }
 
-        public IList<Movies> Movies { get;set; }
-
-        public async Task OnGetAsync()
+        public void OnGet()
         {
-            Movies = await _context.Movies.ToListAsync();
+            //
+        }
+
+        public async Task<IActionResult> OnPost()
+        {
+            await _context.Database.MigrateAsync();
+            DbExists = true;
+            return Page();
         }
     }
 }
