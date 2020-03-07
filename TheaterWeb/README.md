@@ -10,29 +10,29 @@ ASP .NET Core Web App (.NET Core 3.1) with PostgreSQL 10 Database
 
 
 
-## Step-by-Step ##
+## Step-by-Step : Database First  ##
 
-### 0.PostgreSQL Database ###
+### 1. PostgreSQL Database ###
 
 **Create a database named `Ocean` using `pgAdmin` or other tools**
 
-![00](imgs/00.png) 
+![Prepare Database](imgs/00.png) 
 
 
 
-### 1. Create a New ASP .NET Core Web Application ###
+### 2. Create a New ASP .NET Core Web Application ###
 
 **Select `.NET Core` `ASP.NET Core 3.1`**
 
-![01](imgs/01.png)
+![Create Project](imgs/01.png)
 
 
 
-### 2. Prepare Data Models ###
+### 3. Prepare Data Models ###
 
 
 
-**2.1. Install Packages (`EF Core` and `Npgsql`)**
+**3.1. Install Packages (`EF Core` and `Npgsql`)**
 
 
 
@@ -48,11 +48,13 @@ Install-Package Microsoft.EntityFrameworkCore.Tools
 
 
 
-**2.2. Scaffold DB Context**
+**3.2. Scaffold DB Context**
 
 
 
 Firstly, create the output folder (*Models*), then type the script below in `PM>`
+
+
 
 ```
 Scaffold-DbContext “Server=localhost;Database=Ocean;User ID=postgres;Password=postgres;” 
@@ -61,62 +63,151 @@ Npgsql.EntityFrameworkCore.PostgreSQL -OutputDir Models
 
 
 
-![03](imgs/03.png)
+![Scaffold DbContext](imgs/03.png)
 
 
 
-### 3. Connection Settings ###
+### 4. Connection Settings ###
 
 
 
-**3.1. Remove the override method `DbContext.OnConfiguring`**
-
-![04](imgs/04.png)
+**4.1. Remove the override method `DbContext.OnConfiguring`**
 
 
 
-**3.2. Edit App Settings**
+![DbContext.OnConfiguring](imgs/04.png)
 
 
 
-`appsettings.json` *ConnectionStrings* and `Startup.ConfigureServices`
+**4.2. Edit App Settings**
 
 
 
-![05](imgs/05.png)
-
-![06](imgs/06.png)
+Edit `appsettings.json` *ConnectionStrings* and `Startup.ConfigureServices`
 
 
 
-### 4. Add New Razor Page ###
+![ConnectionString](imgs/05.png)
 
-**4.1. Right click on the `Pages` folder, `Add` --> `Razor Page`**
-
-![07](imgs/07.png)
+![Database Connection Configuration](imgs/06.png)
 
 
 
-**4.2. Select `Using Entity Framework to Generate Razor Page (CRUD)`**
+### 5. Add New Razor Page ###
+
+**5.1. Right click on the `Pages` folder, `Add` --> `Razor Page`**
+
+![Add Razor Page](imgs/07.png)
+
+
+
+**5.2. Select `Using Entity Framework to Generate Razor Page (CRUD)`**
 
 ![08](imgs/08.png)
 
 
 
-**4.3. Select `Model` and `Data Context` as below**
+**5.3. Select `Model` and `Data Context` as below**
 
-![09](imgs/09.png)
+![Razor CRUD](imgs/09.png)
 
 
 
-**4.4. Then click `Add`, the required packages will be automatically installed.**
+**5.4. Then click `Add`, the required packages will be automatically installed.**
 
 Wait for a few seconds before it done.
 
-### 5. Run in a browser (maybe Chrome) ###
+### 6. Run in a browser (maybe Chrome) ###
 
 
 
 Screenshot like this:
 
-![10](imgs/10.png)
+![screenshot](imgs/10.png)
+
+## Step-by-Step : Code First  ##
+
+### 1. Create a New ASP .NET Core Web Application ###
+
+
+
+**Select `.NET Core` `ASP.NET Core 3.1`**
+
+
+
+*Steps are the same as the previous*
+
+
+
+### 2. Prepare Data Models ###
+
+
+
+**2.1. Install Packages (`EF Core` and `Npgsql`)**
+
+
+
+*Steps are the same as the previous*
+
+
+
+**2.2. Data Models definition**
+
+
+
+Create the output folder (*Models*), then write your code (definitions) for Data Models and  `XXDbContext` 
+
+
+
+![DataModels](imgs/11.png)
+
+
+
+### 3. Connection Settings ###
+
+Edit `appsettings.json` *ConnectionStrings* and `Startup.ConfigureServices`
+
+
+
+*Steps are the same as the previous*
+
+
+
+### 4. Add Migration ###
+
+
+
+Type in the PM console:
+
+
+
+```
+Add-Migration OceanDbMigration -c OceanDbContext
+```
+
+
+
+![Add-Migration](imgs/12.png)
+
+
+
+You can rename the generated class name, and remember this annotation:
+
+
+
+![rename-migration](imgs/13.png)
+
+
+
+### 5. Add New Razor Page ###
+
+
+
+*Steps are the same as the previous*
+
+
+
+### 6. Run in a browser (maybe Chrome) ###
+
+*Steps are the same as the previous*
+
