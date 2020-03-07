@@ -177,6 +177,8 @@ Edit `appsettings.json` *ConnectionStrings* and `Startup.ConfigureServices`
 
 
 
+**4.1 Build Models**
+
 Type in the PM console:
 
 
@@ -196,6 +198,38 @@ You can rename the generated class name, and remember this annotation:
 
 
 ![rename-migration](imgs/13.png)
+
+
+
+**4.2 Update Database**
+
+
+
+This can be done by typing in the PM console:
+
+
+
+```
+Update-Databse
+```
+
+
+
+Or run `Migration` in your code:
+
+
+
+```
+// check the Db exists or not
+// XXDbContext.Database.CanConnect()
+// XXDbContext.Database.CanConnectAsync()
+
+// Do migration
+XXDbContext.Database.Migration()
+//XXDbContext.Database.MigrationAsync()
+```
+
+
 
 
 
