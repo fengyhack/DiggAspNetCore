@@ -1,0 +1,38 @@
+﻿@page
+@model HaiAdmin.Pages.Config.DeleteModel
+
+@{
+    ViewData["Title"] = "Config | Delete";
+}
+
+<h3>Are you sure to delete this?</h3>
+<div>
+    <h4>Config</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Config.Type)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Config.Type)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Config.Model)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Config.Model)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Config.Key)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Config.Key)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Config.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger"/> &nbsp;&nbsp;|&nbsp;&nbsp;
+        <a asp-page="Index">Back</a>
+    </form>
+</div>

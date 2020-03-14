@@ -1,0 +1,40 @@
+﻿@page
+@model HaiAdmin.Pages.Template.UpdateModel
+
+@{
+    ViewData["Title"] = "Template | Update";
+}
+
+<h4>Template</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Template.Id" />
+            <div class="form-group">
+                <label asp-for="Template.Type" class="control-label"></label>
+                <input asp-for="Template.Type" class="form-control" />
+                <span asp-validation-for="Template.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Template.Model" class="control-label"></label>
+                <input asp-for="Template.Model" class="form-control" />
+                <span asp-validation-for="Template.Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Template.Key" class="control-label"></label>
+                <input asp-for="Template.Key" class="form-control" />
+                <span asp-validation-for="Template.Key" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary"/> &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a asp-page="Index">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

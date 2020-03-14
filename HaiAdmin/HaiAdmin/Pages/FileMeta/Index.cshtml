@@ -1,0 +1,57 @@
+﻿@page
+@model HaiAdmin.Pages.FileMeta.IndexModel
+
+@{
+    ViewData["Title"] = "File";
+}
+
+<h3>Files</h3>
+
+<p>
+    <a asp-page="Add">Add a new record</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FileMetas.FirstOrDefault().Key)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FileMetas.FirstOrDefault().FileName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FileMetas.FirstOrDefault().IsZipped)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FileMetas.FirstOrDefault().Location)
+            </th>
+            <th>
+                Manage
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.FileMetas)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Key)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FileName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsZipped)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    <a asp-page="Update" asp-route-id="@item.Id">Modify</a> |
+                    <a asp-page="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

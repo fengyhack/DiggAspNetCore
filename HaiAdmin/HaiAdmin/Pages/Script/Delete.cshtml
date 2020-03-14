@@ -1,0 +1,44 @@
+﻿@page
+@model HaiAdmin.Pages.Script.DeleteModel
+
+@{
+    ViewData["Title"] = "Script | ";
+}
+
+<h3>Are you sure to delete this?</h3>
+<div>
+    <h4>Script</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Script.Type)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Script.Type)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Script.Model)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Script.Model)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Script.Workflow)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Script.Workflow)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Script.Key)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Script.Key)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Script.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger"/> &nbsp;&nbsp;|&nbsp;&nbsp;
+        <a asp-page="Index">Back</a>
+    </form>
+</div>

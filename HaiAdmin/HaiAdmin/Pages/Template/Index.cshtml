@@ -1,0 +1,51 @@
+﻿@page
+@model HaiAdmin.Pages.Template.IndexModel
+
+@{
+    ViewData["Title"] = "Template";
+}
+
+<h4>Templates</h4>
+
+<p>
+    <a asp-page="Add">Add a new record</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Templates.FirstOrDefault().Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Templates.FirstOrDefault().Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Templates.FirstOrDefault().Key)
+            </th>
+            <th>
+                Manage
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Templates)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Key)
+                </td>
+                <td>
+                    <a asp-page="Update" asp-route-id="@item.Id">Modify</a> |
+                    <a asp-page="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

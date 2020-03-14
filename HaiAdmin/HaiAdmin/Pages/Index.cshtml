@@ -1,0 +1,31 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+    <div>
+        @if (Model.DatabaseExists)
+        {
+            <h5>Database Tables</h5>
+            <ul>
+                <li><a href="/user"><h6>Users</h6></a></li>
+                <li><a href="/instrument"><h6>Instruments</h6></a></li>
+                <li><a href="/models"><h6>Product Models</h6></a></li>
+                <li><a href="/template"><h6>Instrument Templates</h6></a></li>
+                <li><a href="/config"><h6>Configs</h6></a></li>
+                <li><a href="/script"><h6>Scripts</h6></a></li>
+                <li><a href="/report"><h6>Reports</h6></a></li>
+                <li><a href="/filemeta"><h6>Files</h6></a></li>
+            </ul>
+        }
+        else
+        {
+            <p>
+                <b>Database does not exist, click the button below to create it.</b>
+            </p>
+            <form method="post">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </form>
+        }
+    </div>

@@ -1,0 +1,34 @@
+﻿@page
+@model HaiAdmin.Pages.Report.AddModel
+
+@{
+    ViewData["Title"] = "Report | Add";
+}
+
+<h4>Report</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Report.Guid" class="control-label"></label>
+                <input asp-for="Report.Guid" class="form-control" />
+                <span asp-validation-for="Report.Guid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Report.Key" class="control-label"></label>
+                <input asp-for="Report.Key" class="form-control" />
+                <span asp-validation-for="Report.Key" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn btn-primary"/> &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a asp-page="Index">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

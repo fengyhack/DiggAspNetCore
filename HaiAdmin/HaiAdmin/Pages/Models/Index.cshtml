@@ -1,0 +1,45 @@
+﻿@page
+@model HaiAdmin.Pages.Model.IndexModel
+
+@{
+    ViewData["Title"] = "Product Model";
+}
+
+<h4>Product Models</h4>
+
+<p>
+    <a asp-page="Add">Add a new record</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductModels.FirstOrDefault().Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductModels.FirstOrDefault().Models)
+            </th>
+            <th>
+                Manage
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ProductModels)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Models)
+                </td>
+                <td>
+                    <a asp-page="Update" asp-route-id="@item.Id">Modify</a> |
+                    <a asp-page="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

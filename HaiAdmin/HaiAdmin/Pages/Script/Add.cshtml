@@ -1,0 +1,44 @@
+﻿@page
+@model HaiAdmin.Pages.Script.AddModel
+
+@{
+    ViewData["Title"] = "Script | Add";
+}
+
+<h4>Script</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Script.Type" class="control-label"></label>
+                <input asp-for="Script.Type" class="form-control" />
+                <span asp-validation-for="Script.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Script.Model" class="control-label"></label>
+                <input asp-for="Script.Model" class="form-control" />
+                <span asp-validation-for="Script.Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Script.Workflow" class="control-label"></label>
+                <input asp-for="Script.Workflow" class="form-control" />
+                <span asp-validation-for="Script.Workflow" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Script.Key" class="control-label"></label>
+                <input asp-for="Script.Key" class="form-control" />
+                <span asp-validation-for="Script.Key" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn btn-primary"/> &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a asp-page="Index">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,44 @@
+﻿@page
+@model HaiAdmin.Pages.Instrument.DeleteModel
+
+@{
+    ViewData["Title"] = "Instrument | Delete";
+}
+
+<h3>Are you sure to delete this?</h3>
+<div>
+    <h4>Instrument</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Instrument.Guid)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Instrument.Guid)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Instrument.Type)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Instrument.Type)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Instrument.Model)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Instrument.Model)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Instrument.Key)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Instrument.Key)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Instrument.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger"/> &nbsp;&nbsp;|&nbsp;&nbsp;
+        <a asp-page="Index">Back</a>
+    </form>
+</div>

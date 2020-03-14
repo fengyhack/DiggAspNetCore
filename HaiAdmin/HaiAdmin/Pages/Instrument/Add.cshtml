@@ -1,0 +1,44 @@
+﻿@page
+@model HaiAdmin.Pages.Instrument.AddModel
+
+@{
+    ViewData["Title"] = "Instrument | Add";
+}
+
+<h4>Instrument</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Instrument.Guid" class="control-label"></label>
+                <input asp-for="Instrument.Guid" class="form-control" />
+                <span asp-validation-for="Instrument.Guid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Instrument.Type" class="control-label"></label>
+                <input asp-for="Instrument.Type" class="form-control" />
+                <span asp-validation-for="Instrument.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Instrument.Model" class="control-label"></label>
+                <input asp-for="Instrument.Model" class="form-control" />
+                <span asp-validation-for="Instrument.Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Instrument.Key" class="control-label"></label>
+                <input asp-for="Instrument.Key" class="form-control" />
+                <span asp-validation-for="Instrument.Key" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn btn-primary"/> &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a asp-page="Index">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

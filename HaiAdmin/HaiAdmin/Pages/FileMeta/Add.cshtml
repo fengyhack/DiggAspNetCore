@@ -1,0 +1,47 @@
+﻿@page
+@model HaiAdmin.Pages.FileMeta.AddModel
+
+@{
+    ViewData["Title"] = "File | Add";
+}
+
+<h4>File</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FileMeta.Key" class="control-label"></label>
+                <input asp-for="FileMeta.Key" class="form-control" />
+                <span asp-validation-for="FileMeta.Key" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FileMeta.FileName" class="control-label"></label>
+                <input asp-for="FileMeta.FileName" class="form-control" />
+                <span asp-validation-for="FileMeta.FileName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FileMeta.IsZipped" class="control-label"></label>
+                <select asp-for="FileMeta.IsZipped" class="custom-select">
+                    <option value="False">False</option>
+                    <option value="True">True</option>
+                </select>
+                <span asp-validation-for="FileMeta.IsZipped" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FileMeta.Location" class="control-label"></label>
+                <input asp-for="FileMeta.Location" class="form-control" />
+                <span asp-validation-for="FileMeta.Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn btn-primary"/> &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a asp-page="Index">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

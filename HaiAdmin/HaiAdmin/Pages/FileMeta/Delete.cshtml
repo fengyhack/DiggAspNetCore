@@ -1,0 +1,44 @@
+﻿@page
+@model HaiAdmin.Pages.FileMeta.DeleteModel
+
+@{
+    ViewData["Title"] = "File | Delete";
+}
+
+<h3>Are you sure to delete this?</h3>
+<div>
+    <h4>File</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FileMeta.Key)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FileMeta.Key)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FileMeta.FileName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FileMeta.FileName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FileMeta.IsZipped)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FileMeta.IsZipped)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FileMeta.Location)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FileMeta.Location)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="FileMeta.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger"/> &nbsp;&nbsp;|&nbsp;&nbsp;
+        <a asp-page="Index">Back</a>
+    </form>
+</div>
